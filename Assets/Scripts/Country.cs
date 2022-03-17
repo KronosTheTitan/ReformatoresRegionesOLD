@@ -27,7 +27,7 @@ public class Country : MonoBehaviour
     public Army[] armies;
     Navy navy;
 
-    bool inEmpire;
+    public bool inEmpire;
 
     public List<War> activeWars;
     public List<Country> atWarWith;
@@ -68,10 +68,8 @@ public class Country : MonoBehaviour
     {
         GameObject warObject = new GameObject();
         War war = warObject.AddComponent(typeof (War)).GetComponent<War>();
-        if (inEmpire)
-        {
-
-        }
+        war.StartWar(attacker, this);
+        GameManager.ForceUIUpdate();
     }
     void UpdateManpower()
     {

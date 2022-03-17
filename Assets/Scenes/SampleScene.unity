@@ -1258,12 +1258,14 @@ MonoBehaviour:
   armies:
   - {fileID: 446451530}
   - {fileID: 831835762}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
   government: {fileID: 0}
   AIControlled: 1
   countryAI: {fileID: 336119247}
+  eventQueue: []
 --- !u!114 &336119247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1643,6 +1645,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1584384052}
   - {fileID: 1288063473}
+  inEmpire: 0
   activeWars: []
   atWarWith:
   - {fileID: 881955972}
@@ -1650,6 +1653,7 @@ MonoBehaviour:
   government: {fileID: 0}
   AIControlled: 1
   countryAI: {fileID: 401285802}
+  eventQueue: []
 --- !u!114 &401285802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1827,7 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fc8f73f85aa546b5e4bbb27f6bc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emperor: {fileID: 0}
+  emperor: {fileID: 336119246}
   members:
   - {fileID: 0}
   - {fileID: 0}
@@ -2092,12 +2096,14 @@ MonoBehaviour:
   armies:
   - {fileID: 1570899052}
   - {fileID: 1032653986}
+  inEmpire: 0
   activeWars: []
   atWarWith: []
   activeAlliances: []
   government: {fileID: 0}
   AIControlled: 1
   countryAI: {fileID: 445619987}
+  eventQueue: []
 --- !u!114 &445619987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3323,12 +3329,14 @@ MonoBehaviour:
   armies:
   - {fileID: 1749386927}
   - {fileID: 1947115570}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
   government: {fileID: 0}
   AIControlled: 1
   countryAI: {fileID: 699029214}
+  eventQueue: []
 --- !u!114 &699029214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3828,6 +3836,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1902770988}
   - {fileID: 1422302618}
+  inEmpire: 0
   activeWars: []
   atWarWith:
   - {fileID: 401285801}
@@ -3835,6 +3844,7 @@ MonoBehaviour:
   government: {fileID: 0}
   AIControlled: 0
   countryAI: {fileID: 881955973}
+  eventQueue: []
 --- !u!114 &881955973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5103,6 +5113,7 @@ MonoBehaviour:
   - {fileID: 1177355116}
   - {fileID: 699029213}
   - {fileID: 401285801}
+  initEmpire: {fileID: 423193603}
   maxRounds: 50
   UIManager: {fileID: 1084435780}
 --- !u!1 &1135798099
@@ -5452,12 +5463,14 @@ MonoBehaviour:
   armies:
   - {fileID: 1299009798}
   - {fileID: 1734658607}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
   government: {fileID: 0}
   AIControlled: 1
   countryAI: {fileID: 1177355117}
+  eventQueue: []
 --- !u!114 &1177355117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6200,12 +6213,14 @@ MonoBehaviour:
   armies:
   - {fileID: 190544219}
   - {fileID: 955498113}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
   government: {fileID: 0}
   AIControlled: 1
   countryAI: {fileID: 1406896965}
+  eventQueue: []
 --- !u!114 &1406896965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6768,7 +6783,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8ad701c21549354fb7a4301d002511f, type: 2}
+  - {fileID: 2100000, guid: 94abc99a62392304f800431696f549ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8487,12 +8502,14 @@ MonoBehaviour:
   armies:
   - {fileID: 1915464853}
   - {fileID: 353624262}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
   government: {fileID: 0}
   AIControlled: 1
   countryAI: {fileID: 2032756717}
+  eventQueue: []
 --- !u!114 &2032756717
 MonoBehaviour:
   m_ObjectHideFlags: 0

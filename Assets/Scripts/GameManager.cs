@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Country[] countries;
 
+    [SerializeReference]
+    GrandEmpire initEmpire;
+
     public static Country activeCountry;
     public static Menu openMenu;
 
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour
             province.provinceUI.UpdateProvinceBanner();
             UpdateAllUI += province.provinceUI.UpdateProvinceBanner;
         }
+        grandEmpire = initEmpire;
     }
 
     public void NextTurn()
