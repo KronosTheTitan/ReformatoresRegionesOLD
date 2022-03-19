@@ -7,6 +7,7 @@ public class Province : MonoBehaviour
 {
     public Country owningCountry;
     public Army occupationArmy;
+    public Transform armyPos;
     Navy port;
 
     public int ID;

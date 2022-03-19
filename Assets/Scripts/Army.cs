@@ -24,7 +24,7 @@ public class Army : MilitaryUnit
     ArmyMenu armyMenu;
     private void Start()
     {
-        transform.position = location.transform.position;
+        transform.position = location.armyPos.position;
         location.occupationArmy = this;
         GameManager.UpdateAllUI += armyMenu.UpdateBanner;
     }
@@ -116,7 +116,7 @@ public class Army : MilitaryUnit
                         location.occupationArmy = null;
                         destination.occupationArmy = this;
                         location = destination;
-                        transform.position = destination.transform.position;
+                        transform.position = destination.armyPos.position;
                         movementPoints--;
                         siegeCounter = 0;
                     }
@@ -136,7 +136,7 @@ public class Army : MilitaryUnit
                     location.occupationArmy = null;
                     destination.occupationArmy = this;
                     location = destination;
-                    transform.position = destination.transform.position;
+                    transform.position = destination.armyPos.position;
                     movementPoints--;
                     siegeCounter = 0;
                 }
@@ -158,7 +158,7 @@ public class Army : MilitaryUnit
                     location.occupationArmy = null;
                     destination.occupationArmy = this;
                     location = destination;
-                    transform.position = destination.transform.position;
+                    transform.position = destination.armyPos.position;
                     movementPoints--;
                     siegeCounter = 0;
                 }
@@ -205,7 +205,7 @@ public class Army : MilitaryUnit
             location.occupationArmy = null;
             province.occupationArmy = this;
             location = province;
-            transform.position = province.transform.position;
+            transform.position = province.armyPos.position;
         }
     }
     void RaiseArmy(Province province)

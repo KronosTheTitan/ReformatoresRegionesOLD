@@ -28,6 +28,8 @@ public class ProvinceUI : MonoBehaviour
     Sprite bannerAllied;
     [SerializeField]
     Sprite bannerOwned;
+    [SerializeField]
+    Image cappitalImage;
 
     public void UpdateProvinceBanner()
     {
@@ -50,7 +52,10 @@ public class ProvinceUI : MonoBehaviour
             if (GameManager.activeCountry.atWarWith.Contains(province.owningCountry))
             {
                 bannerImage.sprite = bannerAtWar;
-
             }
+        if (province.owningCountry.capital == province)
+            cappitalImage.gameObject.SetActive(true);
+        else
+            cappitalImage.gameObject.SetActive(false);
     }
 }

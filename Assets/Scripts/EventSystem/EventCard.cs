@@ -5,6 +5,9 @@ using UnityEngine;
 public class EventCard : MonoBehaviour
 {
     public Country receiver;
+    public EventBarItem eventBarItem;
+    [SerializeField]
+    Sprite sprite;
     public virtual void EvaluateAI()
     {
 
