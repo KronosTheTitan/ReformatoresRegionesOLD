@@ -1330,6 +1330,7 @@ MonoBehaviour:
   armies:
   - {fileID: 446451530}
   - {fileID: 831835762}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
@@ -1757,6 +1758,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1584384052}
   - {fileID: 1288063473}
+  inEmpire: 0
   activeWars: []
   atWarWith:
   - {fileID: 881955972}
@@ -1950,7 +1952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1fc8f73f85aa546b5e4bbb27f6bc88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emperor: {fileID: 0}
+  emperor: {fileID: 336119246}
   members:
   - {fileID: 0}
   - {fileID: 0}
@@ -2231,6 +2233,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1570899052}
   - {fileID: 1032653986}
+  inEmpire: 0
   activeWars: []
   atWarWith: []
   activeAlliances: []
@@ -3503,6 +3506,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1749386927}
   - {fileID: 1947115570}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
@@ -4017,6 +4021,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1902770988}
   - {fileID: 1422302618}
+  inEmpire: 0
   activeWars: []
   atWarWith:
   - {fileID: 401285801}
@@ -5326,6 +5331,7 @@ MonoBehaviour:
   - {fileID: 1177355116}
   - {fileID: 699029213}
   - {fileID: 401285801}
+  initEmpire: {fileID: 423193603}
   maxRounds: 50
   UIManager: {fileID: 1084435780}
 --- !u!1 &1135798099
@@ -5691,6 +5697,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1299009798}
   - {fileID: 1734658607}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
@@ -6452,6 +6459,7 @@ MonoBehaviour:
   armies:
   - {fileID: 190544219}
   - {fileID: 955498113}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
@@ -7045,7 +7053,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8ad701c21549354fb7a4301d002511f, type: 2}
+  - {fileID: 2100000, guid: 94abc99a62392304f800431696f549ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8857,6 +8865,7 @@ MonoBehaviour:
   armies:
   - {fileID: 1915464853}
   - {fileID: 353624262}
+  inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
