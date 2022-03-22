@@ -87,4 +87,43 @@ public class Country : MonoBehaviour
         if (!AIControlled) return;
         countryAI.AI(gameManager);
     }
+    public void PickCapital()
+    {
+        List < Province > l3 = new List<Province>();
+        List < Province > l2 = new List<Province>();
+        List < Province > l1 = new List<Province>();
+        foreach(Province province in ownedProvinces)
+        {
+            if (province.develpomentLevel == 3)
+                l3.Add(province);
+            if (province.develpomentLevel == 2)
+                l2.Add(province);
+            if (province.develpomentLevel == 1)
+                l1.Add(province);
+        }
+        if (l3.Count >= 1)
+            capital = l3[Random.Range(0, l3.Count)];
+        else if (l2.Count >= 1)
+            capital = l2[Random.Range(0, l2.Count)];
+        else if (l1.Count >= 1)
+            capital = l1[Random.Range(0, l1.Count)];
+    }
+    public int GetArmyWeight()
+    {
+        int output = 0;
+        foreach (Army army in armies)
+            output += army.infantry + army.cavalry + (army.artillery*2);
+        return output;
+    }
+    public void UpdateWars()
+    {
+        atWarWith.Clear();
+        foreach(War war in activeWars)
+        {
+            if (war.defenders.Contains(this))
+                atWarWith.AddRange(war.attackers);
+            else
+                atWarWith.AddRange(war.defenders);
+        }
+    }
 }

@@ -47,6 +47,11 @@ public class Province : MonoBehaviour
     }
     public virtual void ChangeOwner(Country newOwner)
     {
+        owningCountry.ownedProvinces.Remove(this);
+        if (owningCountry.capital == this)
+        {
+
+        }
         owningCountry = newOwner;
         provinceUI.UpdateProvinceBanner();
     }

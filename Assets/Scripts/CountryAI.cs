@@ -22,6 +22,7 @@ public class CountryAI : MonoBehaviour
                 }
             }
         }
+        DeclareWar();
         foreach(Army army in country.armies)
         {
             army.ArmyAI(potentialMoves);
@@ -30,6 +31,36 @@ public class CountryAI : MonoBehaviour
         foreach(EventCard eventCard in country.eventQueue)
         {
             eventCard.EvaluateAI();
+        }
+    }
+    void DeclareWar()
+    {
+        if (country.activeWars.Count >= 1) return;
+        foreach(Country neighbour in landNeighbours)
+        {
+            if (neighbour.inEmpire && !country.inEmpire)
+            {
+                int opposingStrength = 0;
+                foreach (Country country1 in neighbour.activeAlliances)
+                    opposingStrength += country1.GetArmyWeight();
+                foreach (Country country1 in GameManager.grandEmpire.emperor.activeAlliances)
+                    opposingStrength += country1.GetArmyWeight();
+                if(opposingStrength > country.GetArmyWeight())
+                {
+                    neighbour.DeclareWarUpon(country);
+                }
+            }
+            else
+            {
+                int opposingStrength = 0;
+                foreach (Country country1 in neighbour.activeAlliances)
+                    opposingStrength += country1.GetArmyWeight();;
+                if (opposingStrength > country.GetArmyWeight())
+                {
+                    neighbour.DeclareWarUpon(country);
+                }
+
+            }
         }
     }
 }

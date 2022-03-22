@@ -24,7 +24,7 @@ public class War : MonoBehaviour
                 defenders.Add(country);
             }
         }
-        if (defender.inEmpire)
+        if (defender.inEmpire && !attacker.inEmpire)
         {
             GameManager.grandEmpire.emperor.activeWars.Add(this);
             defenders.Add(GameManager.grandEmpire.emperor);
@@ -46,7 +46,25 @@ public class War : MonoBehaviour
             }
         }
     }
+    public void JoinWar(Country country)
+    {
 
+    }
+    public void EndWar()
+    {
+        foreach(Country country in attackers)
+        {
+            country.activeWars.Remove(this);
+            country.UpdateWars();
+        }
+        foreach(Country country1 in defenders)
+        {
+            country1.activeWars.Remove(this);
+            country1.UpdateWars();
+        }
+        GameManager.ForceUIUpdate();
+        Destroy(gameObject);
+    }
     public void SueForPeace()
     {
 

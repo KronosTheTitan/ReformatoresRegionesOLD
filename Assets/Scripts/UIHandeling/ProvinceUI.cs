@@ -21,6 +21,9 @@ public class ProvinceUI : MonoBehaviour
     Text nameText;
 
     [SerializeField]
+    Text provinceLevel;
+
+    [SerializeField]
     Sprite bannerAtWar;
     [SerializeField]
     Sprite bannerAtPeace;
@@ -57,5 +60,6 @@ public class ProvinceUI : MonoBehaviour
             cappitalImage.gameObject.SetActive(true);
         else
             cappitalImage.gameObject.SetActive(false);
+        //provinceLevel.text = "Level = " + province.develpomentLevel.ToString();
     }
 }
