@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,9 @@ public class GameManager : MonoBehaviour
     public static GrandEmpire grandEmpire;
 
     public static MilitaryUnit selectedUnit;
+
+    [SerializeField]
+    EventCardManager eventCardManager;
 
     [SerializeField]
     Country[] countries;
@@ -40,8 +44,14 @@ public class GameManager : MonoBehaviour
         grandEmpire = initEmpire;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return)) NextTurn();
+    }
+
     public void NextTurn()
     {
+        if(activeCountry.eventQueue.Count>0) return;
         if (openMenu != null)
             openMenu.CloseMenu();
         ChangeCountry();
@@ -49,6 +59,7 @@ public class GameManager : MonoBehaviour
         OnNextTurnProvince();
         UpdateAllUI();
         UpdateManpower();
+        eventCardManager.GetEvent(activeCountry);
         activeCountry.RunAI(this);
     }
     void ChangeCountry()

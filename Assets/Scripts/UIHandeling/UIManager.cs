@@ -27,8 +27,18 @@ public class UIManager : MonoBehaviour
         manpower.text = " " + GameManager.activeCountry.manpowerCurrent.ToString()+ " ("+GameManager.activeCountry.manpowerCap.ToString()+")";
         for (int i = 0; i < GameManager.activeCountry.eventQueue.Count; i++)
         {
-            Vector2 targetPos = new Vector2(eventTarget.position.x + (i * 74), eventTarget.position.y);
-            GameManager.activeCountry.eventQueue[i].eventBarItem.gameObject.transform.position = targetPos;
+            //Vector3 targetPos = new Vector3(eventTarget.position.x + (i * 74), eventTarget.position.y);
+            //RectTransform rect = GameManager.activeCountry.eventQueue[i].eventBarItem.GetComponent<RectTransform>();
+            //rect.localPosition = targetPos;
+            Transform targetPos = eventTarget;
+            float x = eventTarget.position.x + (i * 74);
+            float y = eventTarget.position.y;
+            
+            Vector2 pos = GameManager.activeCountry.eventQueue[i].transform.position;
+            pos.x = x;
+            pos.y = y;
+            
+            GameManager.activeCountry.eventQueue[i].eventBarItem.transform.position = pos;
         }
     }
 }

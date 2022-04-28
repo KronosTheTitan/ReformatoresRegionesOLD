@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController Instance;
+
     public float panSpeed = 20f;
     public float panBorderThickness = 10f;
     public Vector2 panLimit;
@@ -11,7 +13,16 @@ public class CameraController : MonoBehaviour
     public float minY = 20f;
     public float maxY = 120f;
 
+    public float minAngle = 45f;
+    public float maxAngle = 90f;
+
     public float scrollSpeed = 2f;
+
+    private void Start()
+    {
+        if (Instance != null) Destroy(Instance.gameObject);
+        Instance = this;
+    }
     void Update()
     {
         Vector3 pos = transform.position;
@@ -41,5 +52,7 @@ public class CameraController : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
         transform.position = pos;
+        float rot = minAngle+((maxAngle - minAngle)*((transform.position.y-minY)/(maxY-minY)));
+        transform.rotation = Quaternion.Euler(rot,transform.rotation.y,transform.rotation.z);
     }
 }

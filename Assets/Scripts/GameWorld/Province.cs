@@ -91,14 +91,14 @@ public class Province : MonoBehaviour
         aDamT += aDam;
         dDam = defender.InflictDamage(defender.cavalry);
         dDamT += dDam;
-        attacker.TakeDamage(dDam, true);
-        defender.TakeDamage(aDam, true);
+        if (attacker.TakeDamage(dDam, true)) return;
+        if (defender.TakeDamage(aDam, true)) return;
         aDam = attacker.InflictDamage(attacker.infantry + (defender.artillery)*2);
         aDamT += aDam;
         dDam = defender.InflictDamage(defender.infantry + (defender.artillery)*2);
         dDamT += dDam;
-        attacker.TakeDamage(dDam, false);
-        defender.TakeDamage(aDam, false);
+        if (attacker.TakeDamage(dDam, false)) return;
+        if (defender.TakeDamage(aDam, false)) return;
 
         if(aDamT > dDamT)
         {
@@ -111,5 +111,15 @@ public class Province : MonoBehaviour
             attacker.Retreat(this);
         }
         GameManager.ForceUIUpdate();
+    }
+
+    public void RaiseArmy()
+    {
+        foreach (Army army in owningCountry.armies)
+        {
+            if (!army.dead) continue;
+            army.RaiseArmy(this);
+            return;
+        }
     }
 }

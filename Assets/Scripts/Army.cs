@@ -10,7 +10,7 @@ public class Army : MilitaryUnit
 
     public int movementPoints = 2;
 
-    bool dead;
+    public bool dead;
     public bool embarked;
 
     public Province location;
@@ -35,7 +35,10 @@ public class Army : MilitaryUnit
             for (int i = damage; i > 0; i--)
             {
                 if (cavalry > 0)
+                {
                     cavalry--;
+                    owningCountry.manpowerGraveyard0++;
+                }
                 else
                 {
                     break;
@@ -47,18 +50,18 @@ public class Army : MilitaryUnit
             if (infantry >= artillery && infantry > 0)
             {
                 infantry--;
+                owningCountry.manpowerGraveyard0++;
             }
             else
             {
                 if (artillery > 0)
                 {
                     artillery--;
+                    owningCountry.manpowerGraveyard0++;
                 }
             }
             if (infantry + artillery <= 0)
             {
-                infantry = 0;
-                artillery = 0;
                 Retreat(location);
                 return true;
             }
@@ -208,14 +211,32 @@ public class Army : MilitaryUnit
             transform.position = province.armyPos.position;
         }
     }
-    void RaiseArmy(Province province)
+    public void RaiseArmy(Province province)
     {
-        if (dead && province.occupationArmy != null && owningCountry.manpowerCurrent > 0)
+        if (dead && province.occupationArmy == null && owningCountry.manpowerCurrent > 0)
         {
             dead = false;
             location = province;
+            owningCountry.manpowerCurrent--;
+            infantry++;
+            transform.position = province.armyPos.position;
+            GameManager.ForceUIUpdate();
             gameObject.SetActive(true);
         }
+    }
+
+    public void Disband()
+    {
+        dead = true;
+        owningCountry.manpowerCurrent += infantry;
+        infantry = 0;
+        owningCountry.manpowerCurrent += cavalry;
+        cavalry = 0;
+        owningCountry.manpowerCurrent += artillery;
+        artillery = 0;
+        armyMenu.CloseMenu();
+        GameManager.ForceUIUpdate();
+        gameObject.SetActive(false);
     }
     public void ArmyAI(List<Province> provinces)
     {

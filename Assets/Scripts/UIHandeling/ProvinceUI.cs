@@ -62,4 +62,17 @@ public class ProvinceUI : MonoBehaviour
             cappitalImage.gameObject.SetActive(false);
         //provinceLevel.text = "Level = " + province.develpomentLevel.ToString();
     }
+    public void Update()
+    {
+        if (Vector3.Distance(banner.transform.position, Camera.main.transform.position) > 750 || CameraController.Instance.transform.position.y == CameraController.Instance.maxY)
+        {
+            banner.gameObject.SetActive(false);
+        }
+        else
+        {
+            banner.gameObject.SetActive(true); banner.gameObject.SetActive(true);
+            float x = Camera.main.transform.rotation.x-banner.transform.rotation.x;
+            banner.transform.Rotate(x,0,0);
+        }
+    }
 }

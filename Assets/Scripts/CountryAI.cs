@@ -27,7 +27,7 @@ public class CountryAI : MonoBehaviour
         {
             army.ArmyAI(potentialMoves);
         }
-        gameManager.NextTurn();
+        //gameManager.NextTurn();
         foreach(EventCard eventCard in country.eventQueue)
         {
             eventCard.EvaluateAI();
