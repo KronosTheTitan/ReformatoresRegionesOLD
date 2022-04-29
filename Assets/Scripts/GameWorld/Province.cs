@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[ExecuteInEditMode]
+
 public class Province : MonoBehaviour
 {
     public Country owningCountry;
     public Army occupationArmy;
     public Transform armyPos;
-    Navy port;
+    public Navy port;
 
     public int ID;
 
@@ -31,7 +31,6 @@ public class Province : MonoBehaviour
 
     private void Start()
     {
-        //provinceUI.UpdateProvinceBanner();
         GameManager.OnNextTurnProvince += OnNextTurn;
     }
     private void Update()
@@ -113,11 +112,11 @@ public class Province : MonoBehaviour
         GameManager.ForceUIUpdate();
     }
 
-    public void RaiseArmy()
+    public void CreateNewArmy()
     {
         foreach (Army army in owningCountry.armies)
         {
-            if (!army.dead) continue;
+            if (!army.CheckIfDead()) continue;
             army.RaiseArmy(this);
             return;
         }

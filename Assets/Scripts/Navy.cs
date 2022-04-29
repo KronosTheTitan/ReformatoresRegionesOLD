@@ -5,7 +5,7 @@ using UnityEngine;
 public class Navy : MilitaryUnit
 {
     [SerializeField]
-    bool docked;
+    bool _isDocked;
     [SerializeField]
     NavalRegion navalRegion;
     [SerializeField]
@@ -14,18 +14,13 @@ public class Navy : MilitaryUnit
     void Dock(Province province)
     {
         if (!navalRegion.ports.Contains(province)) return;
+        if(province.port != null) return;
+        province.port = this;
+        port = province;
+        _isDocked = true;
     }
     public void NavalMove(NavalRegion navalRegion)
     {
 
-    }
-    public void EmbarkArmy()
-    {
-        if (!docked || port == null || embarkedArmy != null) return;
-        if (port.occupationArmy == null) return;
-        if (port.occupationArmy.owningCountry != GameManager.activeCountry) return;
-        embarkedArmy = port.occupationArmy;
-        embarkedArmy.embarked = true;
-        embarkedArmy.location = null;
     }
 }

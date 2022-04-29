@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Army : MilitaryUnit
 {
@@ -10,8 +11,8 @@ public class Army : MilitaryUnit
 
     public int movementPoints = 2;
 
-    public bool dead;
-    public bool embarked;
+    [SerializeField] bool _isDead;
+    [SerializeField] bool _isEmbarked;
 
     public Province location;
     Province previousLocation;
@@ -86,7 +87,7 @@ public class Army : MilitaryUnit
     }
     public void Siege()
     {
-        if (dead)
+        if (_isDead)
             return;
         if (location.owningCountry != owningCountry && owningCountry.atWarWith.Contains(location.owningCountry))
         {
@@ -199,7 +200,7 @@ public class Army : MilitaryUnit
             cavalry = 0;
             artillery = 0;
             location.occupationArmy = null;
-            dead = true;
+            _isDead = true;
             gameObject.SetActive(false);
         }
         else
@@ -213,9 +214,9 @@ public class Army : MilitaryUnit
     }
     public void RaiseArmy(Province province)
     {
-        if (dead && province.occupationArmy == null && owningCountry.manpowerCurrent > 0)
+        if (_isDead && province.occupationArmy == null && owningCountry.manpowerCurrent > 0)
         {
-            dead = false;
+            _isDead = false;
             location = province;
             owningCountry.manpowerCurrent--;
             infantry++;
@@ -227,13 +228,14 @@ public class Army : MilitaryUnit
 
     public void Disband()
     {
-        dead = true;
+        _isDead = true;
         owningCountry.manpowerCurrent += infantry;
         infantry = 0;
         owningCountry.manpowerCurrent += cavalry;
         cavalry = 0;
         owningCountry.manpowerCurrent += artillery;
         artillery = 0;
+        location.occupationArmy = null;
         armyMenu.CloseMenu();
         GameManager.ForceUIUpdate();
         gameObject.SetActive(false);
@@ -241,5 +243,14 @@ public class Army : MilitaryUnit
     public void ArmyAI(List<Province> provinces)
     {
 
+    }
+
+    public bool CheckIfDead()
+    {
+        return _isDead;
+    }
+    public void Embark()
+    {
+        
     }
 }

@@ -9,7 +9,7 @@ public class EventCardManager : MonoBehaviour
 
    
     // Start is called before the first frame update
-    public void GetEvent(Country country)
+    public void AddNewEventCardToCountry(Country country)
     {
         List<EventCard> potentialEvents = new List<EventCard>();
         foreach (EventCard eventCard in events)
@@ -19,7 +19,6 @@ public class EventCardManager : MonoBehaviour
         GameObject gameObject = Instantiate(selected.gameObject);
         selected = gameObject.GetComponent<EventCard>();
         selected.receiver = country;
-        selected.OnCreation();
         country.eventQueue.Add(selected);
     }
 }

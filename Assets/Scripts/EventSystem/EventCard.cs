@@ -41,10 +41,6 @@ public class EventCard : MonoBehaviour
     {
 
     }
-    public void OnCreation()
-    {
-
-    }
     public virtual bool Allowed(Country country)
     {
         return true;

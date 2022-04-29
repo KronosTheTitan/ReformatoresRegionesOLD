@@ -68,7 +68,6 @@ public class MapLoader : MonoBehaviour
             for (int x = 0; x <= xSize; x++)
             {
                 float scaleFactor = 8;
-                //float y = Mathf.PerlinNoise(x*0.1f, z*0.1f) * 2f; *(int)scaleFactor
                 float y = heightData.GetPixel(x * (int)scaleFactor, z *(int)scaleFactor).grayscale * 10;
                 Debug.Log(y);
                 vertices[i] = new Vector3(x, y, z);

@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         OnNextTurnProvince();
         UpdateAllUI();
         UpdateManpower();
-        eventCardManager.GetEvent(activeCountry);
+        eventCardManager.AddNewEventCardToCountry(activeCountry);
         activeCountry.RunAI(this);
     }
     void ChangeCountry()
