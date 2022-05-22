@@ -12,16 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c94cadee51f594dada2bef911ea9dd, type: 3}
   m_Name: Venadian
   m_EditorClassIdentifier: 
-  rulerFirstNames: []
-  rulerLastNames: []
+  rulerFirstNames:
+  - Marcus
+  rulerLastNames:
+  - de Rossi
   provinceNames:
   - Venad
-  - Garcia's hill
-  - 
-  - 
-  - 
+  - Garcia's Hill
+  - Steelforge
+  - Senkerburg
+  - Havnby
   - Florentia
   - 
+  - "G\xF3ra"
+  - Turnov
+  - 
+  - Svitavy
+  - 
+  - Henriks Crossing
+  - Ostburg
+  - Merchojed
+  - 
+  - 
+  - 
+  - Dvergby
+  - Altburg
+  - 
+  - 
+  - Kaiserstadt
+  - 
+  - Klosterhof
   - 
   - 
   - 
@@ -31,6 +51,11 @@ MonoBehaviour:
   - 
   - 
   - 
+  - Norham
+  - Appleford
+  - Helmdon
+  - Poshington
+  - Cambria
   - 
   - 
   - 
@@ -40,17 +65,7 @@ MonoBehaviour:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Bekkr
+  - Steinntoft
+  - Kaldr
+  - Gardr

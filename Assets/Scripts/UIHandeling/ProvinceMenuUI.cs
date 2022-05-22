@@ -1,11 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
+using GameWorld;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ProvinceMenuUI : Menu
+namespace UIHandeling
 {
-    public override void OpenMenu()
+    public class ProvinceMenuUI : Menu
     {
-        base.OpenMenu();
+        [SerializeField] private Text levelText;
+        [SerializeField] private Province parent;
+    
+        public override void OpenMenu()
+        {
+            base.OpenMenu();
+            levelText.text = "Level = "+parent.develpomentLevel.ToString();
+        }
+
+        public void IncreaseLevel()
+        {
+            parent.IncreaseDevelopment();
+            levelText.text = "Level = "+parent.develpomentLevel.ToString();
+        }
     }
 }

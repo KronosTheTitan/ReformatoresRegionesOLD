@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class NavalRegionMenu : Menu
+namespace UIHandeling
 {
+    public class NavalRegionMenu : Menu
+    {
 
+    }
 }

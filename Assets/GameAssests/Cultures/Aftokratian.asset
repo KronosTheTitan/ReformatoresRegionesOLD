@@ -12,33 +12,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c94cadee51f594dada2bef911ea9dd, type: 3}
   m_Name: Aftokratian
   m_EditorClassIdentifier: 
-  rulerFirstNames: []
-  rulerLastNames: []
+  rulerFirstNames:
+  - ' Basil'
+  rulerLastNames:
+  - Angelos
   provinceNames:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Venad
+  - Garcia's Hill
+  - Steelforge
+  - Senkerburg
+  - Havnby
+  - Florentia
   - 
   - "G\xF3ra"
   - Turnov
   - 
   - Svitavy
   - 
-  - 
-  - 
+  - Henriks Crossing
+  - Ostburg
   - Merchojed
   - 
   - 
   - 
-  - 
-  - 
+  - Dvergby
+  - Altburg
   - 
   - 
   - Aftopolis
   - 
+  - Klosterhof
   - 
   - 
   - 
@@ -48,9 +51,21 @@ MonoBehaviour:
   - 
   - 
   - 
+  - Norham
+  - Appleford
+  - Helmdon
+  - Poshington
+  - Cambria
   - 
   - 
   - 
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - Bekkr
+  - Steinntoft
+  - Kaldr
+  - Gardr

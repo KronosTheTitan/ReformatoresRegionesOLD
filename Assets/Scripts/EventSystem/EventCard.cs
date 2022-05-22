@@ -1,38 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
+using GameWorld;
 using UnityEngine;
 
-public class EventCard : MonoBehaviour
+namespace EventSystem
 {
-    public Country receiver;
-    public EventBarItem eventBarItem;
-    [SerializeField]
-    Sprite sprite;
-    public virtual void EvaluateAI()
+    public class EventCard : MonoBehaviour
     {
+        public Country receiver;
 
-    }
-    public void Open()
-    {
+        public Canvas eventBarItem;
 
-    }
-    public void Close()
-    {
-        if (receiver.AIControlled)
+        [SerializeField]
+        Canvas menu;
+        public virtual void EvaluateAI()
         {
 
         }
-        else
+        public void Open()
         {
-            Destroy(gameObject);
+            menu.gameObject.SetActive(true);
         }
-    }
-    public virtual void option1()
-    {
+        public void Close()
+        {
+            if (receiver.aiControlled)
+            {
 
-    }
-    public virtual void option2()
-    {
+            }
+            else
+            {
+                receiver.eventQueue.Remove(this);
+                Destroy(gameObject);
+                GameManager.ForceUIUpdate();
+            }
+        }
+        public virtual void Option1()
+        {
+            Close();
+        }
+        public virtual void Option2()
+        {
 
+        }
+        public virtual bool Allowed(Country country)
+        {
+            return true;
+        }
+
+        private void Update()
+        {
+            if (!menu.gameObject.activeSelf) return;
+            if(Input.GetKeyDown(KeyCode.Alpha1)) Option1();
+            if(Input.GetKeyDown(KeyCode.Alpha2)) Option2();
+        }
     }
 }

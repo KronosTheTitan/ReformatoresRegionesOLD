@@ -1,17 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
+
     public float panSpeed = 20f;
-    public float panBorderThickness = 10f;
     public Vector2 panLimit;
 
     public float minY = 20f;
     public float maxY = 120f;
 
+    public float minAngle = 45f;
+    public float maxAngle = 90f;
+
     public float scrollSpeed = 2f;
+
+    private void Start()
+    {
+        if (instance != null) Destroy(instance.gameObject);
+        instance = this;
+    }
     void Update()
     {
         Vector3 pos = transform.position;
@@ -41,5 +49,9 @@ public class CameraController : MonoBehaviour
         pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
 
         transform.position = pos;
+        float rot = minAngle+((maxAngle - minAngle)*((transform.position.y-minY)/(maxY-minY)));
+        var rotation = transform.rotation;
+        rotation = Quaternion.Euler(rot,rotation.y,rotation.z);
+        transform.rotation = rotation;
     }
 }

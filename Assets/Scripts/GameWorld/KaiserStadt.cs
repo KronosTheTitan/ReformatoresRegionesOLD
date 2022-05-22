@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using GameWorld.Governments;
 
-public class KaiserStadt : Province
+namespace GameWorld
 {
-    public override void ChangeOwner(Country newOwner)
+    public class KaiserStadt : Province
     {
-        if(newOwner.government is Government_Monarchy)
+        public override void ChangeOwner(Country newOwner)
         {
-            GameManager.grandEmpire.emperor = newOwner;
+            if(newOwner.government is GovernmentMonarchy)
+            {
+                GameManager.instance.grandEmpire.emperor = newOwner;
+            }
+            base.ChangeOwner(newOwner);
         }
-        base.ChangeOwner(newOwner);
     }
 }

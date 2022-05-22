@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class EventBattleLost : EventCard
+namespace EventSystem
 {
+    public class EventBattleLost : EventCard
+    {
 
+    }
 }
