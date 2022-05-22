@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2541840719653065823}
   - component: {fileID: 8993324120141510758}
   m_Layer: 0
-  m_Name: Infantry (1)
+  m_Name: ArtillerInArmy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,8 +29,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7718300345926697928}
+  m_Children: []
   m_Father: {fileID: 1854037663339167726}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -385,7 +384,7 @@ GameObject:
   - component: {fileID: 878258694657922449}
   - component: {fileID: 2784229159942959637}
   m_Layer: 5
-  m_Name: Button
+  m_Name: BannerButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -894,7 +893,7 @@ GameObject:
   - component: {fileID: 5167231063565887485}
   - component: {fileID: 7573477721205116257}
   m_Layer: 0
-  m_Name: Canvas
+  m_Name: MenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -994,7 +993,7 @@ GameObject:
   - component: {fileID: 6486063499880146028}
   - component: {fileID: 5728476679662501307}
   m_Layer: 0
-  m_Name: Image
+  m_Name: CountryFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2405,8 +2404,8 @@ MonoBehaviour:
   cavalry: 0
   artillery: 0
   movementPoints: 2
-  dead: 0
-  embarked: 0
+  isDead: 0
+  isEmbarked: 0
   location: {fileID: 0}
   owningCountry: {fileID: 0}
   armyMenu: {fileID: 6038573623394116918}
@@ -2849,7 +2848,7 @@ GameObject:
   - component: {fileID: 8937099153959438879}
   - component: {fileID: 131126021871160616}
   m_Layer: 0
-  m_Name: InfPlus
+  m_Name: ArtPlus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2864,12 +2863,12 @@ RectTransform:
   m_GameObject: {fileID: 7665050344660804117}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3316980351506958698}
-  m_Father: {fileID: 4459251087274901499}
-  m_RootOrder: 0
+  m_Father: {fileID: 1854037663339167726}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2982,7 +2981,7 @@ GameObject:
   - component: {fileID: 5344905962363205047}
   - component: {fileID: 419083240339025427}
   m_Layer: 0
-  m_Name: Panel
+  m_Name: MenuBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3064,7 +3063,7 @@ GameObject:
   - component: {fileID: 2902373876847807937}
   - component: {fileID: 3886232261845899753}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BannerText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3163,6 +3162,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4459251087274901499}
+  - {fileID: 7718300345926697928}
   - {fileID: 3500938864663898727}
   m_Father: {fileID: 994886701921286130}
   m_RootOrder: 4
@@ -3308,7 +3308,7 @@ GameObject:
   - component: {fileID: 3351756281561773134}
   - component: {fileID: 8598809860631699683}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BannerFlag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3385,7 +3385,7 @@ GameObject:
   - component: {fileID: 1484695386115987440}
   - component: {fileID: 2169248312236685991}
   m_Layer: 0
-  m_Name: InfMin
+  m_Name: ArtMin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3405,7 +3405,7 @@ RectTransform:
   m_Children:
   - {fileID: 8451454224401869402}
   m_Father: {fileID: 1854037663339167726}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

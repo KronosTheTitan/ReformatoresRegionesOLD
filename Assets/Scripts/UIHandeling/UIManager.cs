@@ -1,44 +1,74 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using GameWorld;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+namespace UIHandeling
 {
-    [SerializeField]
-    Image cornerFlag;
-    [SerializeField]
-    Text countryName;
-    [SerializeField]
-    Text treasury;
-    [SerializeField]
-    Text manpower;
-    [SerializeField]
-    Transform eventTarget;
-    private void Start()
+    public class UIManager : MonoBehaviour
     {
-        GameManager.UpdateAllUI += UpdateUI;
-    }
-    public void UpdateUI()
-    {
-        cornerFlag.sprite = GameManager.activeCountry.flag;
-        countryName.text = GameManager.activeCountry.countryName;
-        treasury.text = " "+GameManager.activeCountry.treasury.ToString();
-        manpower.text = " " + GameManager.activeCountry.manpowerCurrent.ToString()+ " ("+GameManager.activeCountry.manpowerCap.ToString()+")";
-        for (int i = 0; i < GameManager.activeCountry.eventQueue.Count; i++)
+        [SerializeField] private Image cornerFlagText;
+
+        [SerializeField] private Text countryNameText;
+
+        [SerializeField] private Text treasuryText;
+
+        [SerializeField] private Text manpowerText;
+
+        [SerializeField] private Text rulerNameText;
+
+        [SerializeField] private Text rulerSkillText;
+
+        [SerializeField] private Text rulerSkillStoredText;
+
+        [SerializeField] private Transform eventTargetTransform;
+        private void Start()
         {
-            //Vector3 targetPos = new Vector3(eventTarget.position.x + (i * 74), eventTarget.position.y);
-            //RectTransform rect = GameManager.activeCountry.eventQueue[i].eventBarItem.GetComponent<RectTransform>();
-            //rect.localPosition = targetPos;
-            Transform targetPos = eventTarget;
-            float x = eventTarget.position.x + (i * 74);
-            float y = eventTarget.position.y;
+            GameManager.UpdateAllUI += UpdateUI;
+        }
+        public void UpdateUI(Country activeCountry)
+        {
+            cornerFlagText.sprite = activeCountry.flag;
+            countryNameText.text = activeCountry.countryName;
+            treasuryText.text = " "+activeCountry.treasury.ToString();
+            manpowerText.text = " " + activeCountry.manpowerCurrent.ToString()+ " ("+activeCountry.manpowerCap.ToString()+")";
+            UpdateEventBar(activeCountry);
+            UpdateRulerInfoTopBar(activeCountry);
+        }
+        /// <summary>
+        /// update all the events in the queue for the passed in country displayed in the top bar.
+        /// </summary>
+        /// <param name="activeCountry"></param>
+        void UpdateEventBar(Country activeCountry)
+        {
+            for (int i = 0; i < activeCountry.eventQueue.Count; i++)
+            {
+                //set the of the event bar item to the 
+                activeCountry.eventQueue[i].transform.parent = transform;
+                
+                //calculate the position for the selected event in the top bar.
+                float x = eventTargetTransform.position.x + (i * 72);
+                float y = eventTargetTransform.position.y;
             
-            Vector2 pos = GameManager.activeCountry.eventQueue[i].transform.position;
-            pos.x = x;
-            pos.y = y;
+                Vector2 pos = activeCountry.eventQueue[i].transform.position;
+                pos.x = x;
+                pos.y = y;
             
-            GameManager.activeCountry.eventQueue[i].eventBarItem.transform.position = pos;
+                activeCountry.eventQueue[i].eventBarItem.transform.position = pos;
+                Console.WriteLine(activeCountry.eventQueue[i].transform.parent.name);
+            }
+        }
+        /// <summary>
+        /// Update the information on the passed in countries ruler displayed in the top bar.
+        /// </summary>
+        /// <param name="activeCountry"></param>
+        void UpdateRulerInfoTopBar(Country activeCountry)
+        {
+            rulerNameText.text = activeCountry.ruler.RulerName;
+            
+            rulerSkillText.text = "+"+activeCountry.ruler.RulerSkill.ToString();
+            
+            rulerSkillStoredText.text = "Skill points = \r\n"+activeCountry.rulerSkillStored;
         }
     }
 }

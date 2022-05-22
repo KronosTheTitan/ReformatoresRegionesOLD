@@ -12,34 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c94cadee51f594dada2bef911ea9dd, type: 3}
   m_Name: Albian
   m_EditorClassIdentifier: 
-  rulerFirstNames: []
-  rulerLastNames: []
+  rulerFirstNames:
+  - William
+  - George
+  - Richard
+  rulerLastNames:
+  - Smith
   provinceNames:
+  - Venad
+  - Garcia's Hill
+  - Steelforge
+  - Senkerburg
+  - Havnby
+  - Florentia
+  - 
+  - "G\xF3ra"
+  - Turnov
+  - 
+  - Svitavy
+  - 
+  - Henriks Crossing
+  - Ostburg
+  - Merchojed
   - 
   - 
   - 
+  - Dvergby
+  - Altburg
   - 
   - 
+  - Kaiserstadt
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Klosterhof
   - 
   - 
   - 
@@ -54,3 +58,16 @@ MonoBehaviour:
   - Helmdon
   - Poshington
   - Cambria
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - Bekkr
+  - Steinntoft
+  - Kaldr
+  - Gardr

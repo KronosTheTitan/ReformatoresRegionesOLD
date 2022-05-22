@@ -1,55 +1,55 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using GameWorld;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class EventCard : MonoBehaviour
+namespace EventSystem
 {
-    public Country receiver;
-
-    public Canvas eventBarItem;
-
-    [SerializeField]
-    Canvas menu;
-    public virtual void EvaluateAI()
+    public class EventCard : MonoBehaviour
     {
+        public Country receiver;
 
-    }
-    public void Open()
-    {
-        menu.gameObject.SetActive(true);
-    }
-    public void Close()
-    {
-        if (receiver.AIControlled)
+        public Canvas eventBarItem;
+
+        [SerializeField]
+        Canvas menu;
+        public virtual void EvaluateAI()
         {
 
         }
-        else
+        public void Open()
         {
-            receiver.eventQueue.Remove(this);
-            Destroy(gameObject);
-            GameManager.ForceUIUpdate();
+            menu.gameObject.SetActive(true);
         }
-    }
-    public virtual void option1()
-    {
-        Close();
-    }
-    public virtual void option2()
-    {
+        public void Close()
+        {
+            if (receiver.aiControlled)
+            {
 
-    }
-    public virtual bool Allowed(Country country)
-    {
-        return true;
-    }
+            }
+            else
+            {
+                receiver.eventQueue.Remove(this);
+                Destroy(gameObject);
+                GameManager.ForceUIUpdate();
+            }
+        }
+        public virtual void Option1()
+        {
+            Close();
+        }
+        public virtual void Option2()
+        {
 
-    private void Update()
-    {
-        if (!menu.gameObject.activeSelf) return;
-        if(Input.GetKeyDown(KeyCode.Alpha1)) option1();
-        if(Input.GetKeyDown(KeyCode.Alpha2)) option2();
+        }
+        public virtual bool Allowed(Country country)
+        {
+            return true;
+        }
+
+        private void Update()
+        {
+            if (!menu.gameObject.activeSelf) return;
+            if(Input.GetKeyDown(KeyCode.Alpha1)) Option1();
+            if(Input.GetKeyDown(KeyCode.Alpha2)) Option2();
+        }
     }
 }

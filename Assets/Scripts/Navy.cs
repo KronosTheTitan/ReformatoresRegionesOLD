@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameWorld;
 using UnityEngine;
 
 public class Navy : MilitaryUnit
 {
     [SerializeField]
-    bool _isDocked;
+    bool isDocked;
     [SerializeField]
     NavalRegion navalRegion;
     [SerializeField]
@@ -17,7 +18,7 @@ public class Navy : MilitaryUnit
         if(province.port != null) return;
         province.port = this;
         port = province;
-        _isDocked = true;
+        isDocked = true;
     }
     public void NavalMove(NavalRegion navalRegion)
     {

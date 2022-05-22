@@ -8,16 +8,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     GameObject backGround;
 
-    [SerializeField]
-    float maxX = 2000;
-    [SerializeField]
-    float minX = -2000;
-
-    [SerializeField]
-    float maxY = 1700;
-    [SerializeField]
-    float minY = 1700;
-
     Vector3 _bgVelocity = new Vector3(0.1f, 0.1f, 0);
     public void StartNewGame()
     {

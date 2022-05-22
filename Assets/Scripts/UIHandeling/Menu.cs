@@ -1,20 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Menu : MonoBehaviour
+namespace UIHandeling
 {
-    public Canvas menu;
-    public virtual void OpenMenu()
+    public class Menu : MonoBehaviour
     {
-        if (GameManager.openMenu != null)
-            GameManager.openMenu.CloseMenu();
-        GameManager.openMenu = this;
-        menu.gameObject.SetActive(true);
-    }
-    public virtual void CloseMenu()
-    {
-        GameManager.openMenu = null;
-        menu.gameObject.SetActive(false);
+        public Canvas menu;
+        public virtual void OpenMenu()
+        {
+            if (GameManager.instance.openMenu != null)
+                GameManager.instance.openMenu.CloseMenu();
+            GameManager.instance.openMenu = this;
+            menu.gameObject.SetActive(true);
+        }
+        public virtual void CloseMenu()
+        {
+            GameManager.instance.openMenu = null;
+            menu.gameObject.SetActive(false);
+        }
     }
 }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameWorld;
+using UIHandeling;
 using UnityEngine;
 
 public class NavalRegion : MonoBehaviour
@@ -12,15 +14,15 @@ public class NavalRegion : MonoBehaviour
     [SerializeField]
     NavalRegionMenu navalMenu; 
 
-    List<Navy> navies;
+    List<Navy> _navies;
 
     public void Click()
     {
-        if(GameManager.selectedUnit != null)
+        if(GameManager.instance.selectedUnit != null)
         {
-            if(GameManager.selectedUnit is Navy)
+            if(GameManager.instance.selectedUnit is Navy)
             {
-                Navy navy = (Navy)GameManager.selectedUnit;
+                Navy navy = (Navy)GameManager.instance.selectedUnit;
                 navy.NavalMove(this);
             }
         }

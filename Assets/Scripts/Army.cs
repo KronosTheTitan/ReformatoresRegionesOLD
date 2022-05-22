@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using GameWorld;
+using UIHandeling;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,15 +13,15 @@ public class Army : MilitaryUnit
 
     public int movementPoints = 2;
 
-    [SerializeField] bool _isDead;
-    [SerializeField] bool _isEmbarked;
+    [SerializeField] bool isDead;
+    [SerializeField] bool isEmbarked;
 
     public Province location;
-    Province previousLocation;
+    Province _previousLocation;
 
     public Country owningCountry;
 
-    int siegeCounter;
+    int _siegeCounter;
 
     [SerializeField]
     ArmyMenu armyMenu;
@@ -27,7 +29,6 @@ public class Army : MilitaryUnit
     {
         transform.position = location.armyPos.position;
         location.occupationArmy = this;
-        GameManager.UpdateAllUI += armyMenu.UpdateBanner;
     }
 
     public bool TakeDamage(int damage, bool stage1)
@@ -72,7 +73,7 @@ public class Army : MilitaryUnit
     }
     public void Click()
     {
-        if (owningCountry == GameManager.activeCountry)
+        if (owningCountry == GameManager.instance.activeCountry)
             armyMenu.OpenMenu();
     }
     public int InflictDamage(int attacksToMake)
@@ -87,14 +88,14 @@ public class Army : MilitaryUnit
     }
     public void Siege()
     {
-        if (_isDead)
+        if (isDead)
             return;
         if (location.owningCountry != owningCountry && owningCountry.atWarWith.Contains(location.owningCountry))
         {
-            siegeCounter++;
-            if (siegeCounter == location.develpomentLevel)
+            _siegeCounter++;
+            if (_siegeCounter == location.develpomentLevel)
             {
-                siegeCounter = 0;
+                _siegeCounter = 0;
                 location.ChangeOwner(owningCountry);
             }
         }
@@ -122,7 +123,7 @@ public class Army : MilitaryUnit
                         location = destination;
                         transform.position = destination.armyPos.position;
                         movementPoints--;
-                        siegeCounter = 0;
+                        _siegeCounter = 0;
                     }
                 }
             }
@@ -142,7 +143,7 @@ public class Army : MilitaryUnit
                     location = destination;
                     transform.position = destination.armyPos.position;
                     movementPoints--;
-                    siegeCounter = 0;
+                    _siegeCounter = 0;
                 }
             }
         }
@@ -164,7 +165,7 @@ public class Army : MilitaryUnit
                     location = destination;
                     transform.position = destination.armyPos.position;
                     movementPoints--;
-                    siegeCounter = 0;
+                    _siegeCounter = 0;
                 }
             }
         }
@@ -172,7 +173,7 @@ public class Army : MilitaryUnit
     public void Retreat(Province start)
     {
         if (location != start) return;
-        siegeCounter = 0;
+        _siegeCounter = 0;
         List<Province> potentialRetreats = new List<Province>();
         foreach (Province province in start.landNeighbours)
         {
@@ -200,7 +201,7 @@ public class Army : MilitaryUnit
             cavalry = 0;
             artillery = 0;
             location.occupationArmy = null;
-            _isDead = true;
+            isDead = true;
             gameObject.SetActive(false);
         }
         else
@@ -214,9 +215,9 @@ public class Army : MilitaryUnit
     }
     public void RaiseArmy(Province province)
     {
-        if (_isDead && province.occupationArmy == null && owningCountry.manpowerCurrent > 0)
+        if (isDead && province.occupationArmy == null && owningCountry.manpowerCurrent > 0)
         {
-            _isDead = false;
+            isDead = false;
             location = province;
             owningCountry.manpowerCurrent--;
             infantry++;
@@ -228,7 +229,7 @@ public class Army : MilitaryUnit
 
     public void Disband()
     {
-        _isDead = true;
+        isDead = true;
         owningCountry.manpowerCurrent += infantry;
         infantry = 0;
         owningCountry.manpowerCurrent += cavalry;
@@ -247,7 +248,7 @@ public class Army : MilitaryUnit
 
     public bool CheckIfDead()
     {
-        return _isDead;
+        return isDead;
     }
     public void Embark()
     {

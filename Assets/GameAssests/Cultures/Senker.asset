@@ -12,32 +12,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c94cadee51f594dada2bef911ea9dd, type: 3}
   m_Name: Senker
   m_EditorClassIdentifier: 
-  rulerFirstNames: []
-  rulerLastNames: []
+  rulerFirstNames:
+  - Karl
+  - Johan
+  - Wilhelm
+  rulerLastNames:
+  - Von Berg
+  - Walthof
+  - Wagner
   provinceNames:
-  - 
-  - 
-  - 
+  - Venad
+  - Garcia's Hill
+  - Steelforge
   - Senkerburg
   - Havnby
+  - Florentia
+  - 
+  - "G\xF3ra"
+  - Turnov
+  - 
+  - Svitavy
+  - 
+  - Henriks Crossing
+  - Ostburg
+  - Merchojed
   - 
   - 
   - 
+  - Dvergby
+  - Altburg
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Kaiserstadt
   - 
   - Klosterhof
   - 
@@ -49,8 +55,21 @@ MonoBehaviour:
   - 
   - 
   - 
+  - Norham
+  - Appleford
+  - Helmdon
+  - Poshington
+  - Cambria
   - 
   - 
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
+  - Bekkr
+  - Steinntoft
+  - Kaldr
+  - Gardr

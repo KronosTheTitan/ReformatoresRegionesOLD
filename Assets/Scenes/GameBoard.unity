@@ -195,6 +195,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 699029213}
@@ -265,6 +269,7 @@ Transform:
   m_Children:
   - {fileID: 500316212}
   - {fileID: 1117836630}
+  - {fileID: 953628270}
   m_Father: {fileID: 423193602}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -283,7 +288,7 @@ MonoBehaviour:
   countryName: The Northern Isles
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 2
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 93d1638c70f688e4a919b67ade535017, type: 2}
@@ -295,16 +300,19 @@ MonoBehaviour:
   - {fileID: 45220306}
   - {fileID: 628456413}
   - {fileID: 1376059591}
-  capital: {fileID: 1268329537}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 500316211}
   - {fileID: 1117836631}
+  navy: {fileID: 0}
   inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 953628271}
+  aiControlled: 0
   countryAI: {fileID: 12128763}
   eventQueue: []
 --- !u!114 &12128763
@@ -320,6 +328,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 12128762}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!1 &31951341
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +346,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &31951342
 Transform:
@@ -398,6 +408,51 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 1
+--- !u!1 &39184017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 39184018}
+  - component: {fileID: 39184019}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &39184018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39184017}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1406896963}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39184019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39184017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce57f0db45e8674093cc505f31bf006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 1406896964}
 --- !u!114 &45220306 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -514,6 +569,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -621,6 +680,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -812,6 +875,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -868,6 +935,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72abd1f4c0fc4824e9e8db6710cee947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &160055890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160055891}
+  - component: {fileID: 160055892}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &160055891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160055890}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 336119245}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160055892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160055890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e273c5941fbc21242b66d952c5ce60a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 336119246}
+  electionTurnInterval: 2
 --- !u!1001 &163287605
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -918,6 +1031,10 @@ PrefabInstance:
     - target: {fileID: 4478436730047325590, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
@@ -1019,6 +1136,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -1128,6 +1249,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -1334,6 +1459,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -1556,6 +1685,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 699029213}
@@ -1714,6 +1847,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72abd1f4c0fc4824e9e8db6710cee947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &311634153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 311634154}
+  - component: {fileID: 311634155}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &311634154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311634153}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 699029212}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &311634155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311634153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce57f0db45e8674093cc505f31bf006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 699029213}
 --- !u!114 &315159253 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -1768,6 +1946,7 @@ Transform:
   m_Children:
   - {fileID: 446451529}
   - {fileID: 831835761}
+  - {fileID: 160055891}
   m_Father: {fileID: 423193602}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1786,7 +1965,7 @@ MonoBehaviour:
   countryName: Archduchy of the Kernland
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 11
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 9b114ae218ae6094d98cc68a4314b430, type: 2}
@@ -1799,17 +1978,20 @@ MonoBehaviour:
   - {fileID: 1287866993}
   - {fileID: 475021464}
   - {fileID: 832483825}
-  capital: {fileID: 77476842}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 446451530}
   - {fileID: 831835762}
+  navy: {fileID: 0}
   inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances:
   - {fileID: 2032756716}
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 160055892}
+  aiControlled: 0
   countryAI: {fileID: 336119247}
   eventQueue: []
 --- !u!114 &336119247
@@ -1825,6 +2007,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 336119246}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!1 &336154852
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,6 +2198,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -2302,6 +2490,7 @@ Transform:
   m_Children:
   - {fileID: 1584384051}
   - {fileID: 1288063472}
+  - {fileID: 737905153}
   m_Father: {fileID: 423193602}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2320,7 +2509,7 @@ MonoBehaviour:
   countryName: The holy empire of Aftokratia
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 2
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 545934ed8e0dda44381708db54181b6d, type: 2}
@@ -2330,17 +2519,20 @@ MonoBehaviour:
   - {fileID: 503729455}
   - {fileID: 193954132}
   - {fileID: 1868869834}
-  capital: {fileID: 1807286933}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 1584384052}
   - {fileID: 1288063473}
+  navy: {fileID: 0}
   inEmpire: 0
   activeWars: []
   atWarWith:
   - {fileID: 881955972}
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 737905154}
+  aiControlled: 0
   countryAI: {fileID: 401285802}
   eventQueue: []
 --- !u!114 &401285802
@@ -2356,6 +2548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 401285801}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!114 &401397751 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -2439,6 +2633,10 @@ PrefabInstance:
       value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 1177355116}
@@ -2477,6 +2675,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4478436730047325590, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
   m_PrefabInstance: {fileID: 409061546}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &417368013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 417368014}
+  m_Layer: 5
+  m_Name: WarTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &417368014
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417368013}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1084435779}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 688.0001, y: -499.80502}
+  m_SizeDelta: {x: 64, y: 64}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &423193601
 GameObject:
   m_ObjectHideFlags: 0
@@ -2611,6 +2845,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 881955972}
@@ -2713,6 +2951,10 @@ PrefabInstance:
       value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 1406896964}
@@ -2799,6 +3041,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -2865,6 +3111,7 @@ Transform:
   m_Children:
   - {fileID: 1570899051}
   - {fileID: 1032653985}
+  - {fileID: 1963575739}
   m_Father: {fileID: 423193602}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2883,7 +3130,7 @@ MonoBehaviour:
   countryName: Kingdom of Albion
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 2
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 5d8e4cd4b77c99142b27a6a17b2fa78f, type: 2}
@@ -2894,16 +3141,19 @@ MonoBehaviour:
   - {fileID: 752602117}
   - {fileID: 953103589}
   - {fileID: 58705633}
-  capital: {fileID: 58705633}
+  _capital: {fileID: 58705633}
   armies:
   - {fileID: 1570899052}
   - {fileID: 1032653986}
+  navy: {fileID: 0}
   inEmpire: 0
   activeWars: []
   atWarWith: []
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 1963575740}
+  aiControlled: 0
   countryAI: {fileID: 445619987}
   eventQueue: []
 --- !u!114 &445619987
@@ -2919,6 +3169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 445619986}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!1001 &446451528
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3008,6 +3260,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bd705fab5efb14e8436d5cd71ddf60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &446536250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 446536251}
+  - component: {fileID: 446536252}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &446536251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446536250}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2032756715}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446536252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446536250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce57f0db45e8674093cc505f31bf006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 2032756716}
 --- !u!1 &449649572
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,9 +3339,8 @@ RectTransform:
   - {fileID: 1229736171}
   - {fileID: 1822606949}
   - {fileID: 374801346}
-  - {fileID: 1842173585}
   m_Father: {fileID: 1084435779}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -3438,6 +3734,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1991415187}
+  - {fileID: 1368062777}
   m_Father: {fileID: 1822606949}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3863,6 +4160,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 2032756716}
@@ -3977,6 +4278,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -4184,6 +4489,10 @@ PrefabInstance:
       value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 2032756716}
@@ -4291,6 +4600,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -4440,6 +4753,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -4766,6 +5083,7 @@ Transform:
   m_Children:
   - {fileID: 1749386926}
   - {fileID: 1947115569}
+  - {fileID: 311634154}
   m_Father: {fileID: 423193602}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4784,7 +5102,7 @@ MonoBehaviour:
   countryName: The Oster mark
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 2
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 93d1638c70f688e4a919b67ade535017, type: 2}
@@ -4796,16 +5114,19 @@ MonoBehaviour:
   - {fileID: 45220306}
   - {fileID: 628456413}
   - {fileID: 1376059591}
-  capital: {fileID: 1268329537}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 1749386927}
   - {fileID: 1947115570}
+  navy: {fileID: 0}
   inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 311634155}
+  aiControlled: 0
   countryAI: {fileID: 699029214}
   eventQueue: []
 --- !u!114 &699029214
@@ -4821,6 +5142,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 699029213}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5038,6 +5361,51 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!1 &737905152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 737905153}
+  - component: {fileID: 737905154}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &737905153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737905152}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 401285800}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &737905154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737905152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce57f0db45e8674093cc505f31bf006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 401285801}
 --- !u!1 &749858057
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,7 +5422,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &749858058
 Transform:
@@ -5480,6 +5848,10 @@ PrefabInstance:
       value: 27
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 336119246}
@@ -5585,6 +5957,7 @@ Transform:
   - {fileID: 575221457}
   - {fileID: 1422302617}
   - {fileID: 2215576278153302712}
+  - {fileID: 1263303169}
   m_Father: {fileID: 423193602}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5603,7 +5976,7 @@ MonoBehaviour:
   countryName: Merchants Republic of Venad
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 7
+  manpowerUsed: 8
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 63d0970d45dc4e54198f5c8d78db67a1, type: 2}
@@ -5613,17 +5986,20 @@ MonoBehaviour:
   - {fileID: 1839921445}
   - {fileID: 2145918956}
   - {fileID: 2109509324}
-  capital: {fileID: 839992521}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 1902770988}
   - {fileID: 1422302618}
+  navy: {fileID: 0}
   inEmpire: 0
   activeWars: []
   atWarWith:
   - {fileID: 401285801}
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 1263303170}
+  aiControlled: 0
   countryAI: {fileID: 881955973}
   eventQueue: []
 --- !u!114 &881955973
@@ -5639,6 +6015,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 881955972}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!1001 &883657748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5792,6 +6170,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -5891,6 +6273,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -6136,6 +6522,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72abd1f4c0fc4824e9e8db6710cee947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &953628269
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 953628270}
+  - component: {fileID: 953628271}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &953628270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953628269}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 12128761}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953628271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953628269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce57f0db45e8674093cc505f31bf006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 12128762}
 --- !u!1001 &955498111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6297,6 +6728,10 @@ PrefabInstance:
       value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: coast
       value: 
       objectReference: {fileID: 1312060010}
@@ -6387,9 +6822,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 12128762}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: develpomentLevel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: seaNeighbours.Array.size
       value: 4
@@ -6465,7 +6908,7 @@ Camera:
   m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 20.78461
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -6474,7 +6917,7 @@ Camera:
     height: 1
   near clip plane: 10
   far clip plane: 1000
-  field of view: 60
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -6520,7 +6963,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panSpeed: 400
-  panBorderThickness: 10
   panLimit: {x: 1500, y: 1000}
   minY: 80
   maxY: 800
@@ -6651,6 +7093,128 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!1 &984048564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 984048565}
+  - component: {fileID: 984048568}
+  - component: {fileID: 984048567}
+  - component: {fileID: 984048566}
+  m_Layer: 5
+  m_Name: GrandEmpireButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &984048565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984048564}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1990980574}
+  m_Father: {fileID: 1084435779}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 776.00006, y: -491.80502}
+  m_SizeDelta: {x: 96, y: 96}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &984048566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984048564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 984048567}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &984048567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984048564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &984048568
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984048564}
+  m_CullTransparentMesh: 1
 --- !u!1 &1005504115
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,6 +7382,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -7296,7 +7864,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -7313,7 +7881,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 600298487}
+  - {fileID: 984048565}
   - {fileID: 449649573}
+  - {fileID: 417368014}
+  - {fileID: 1842173585}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7334,11 +7905,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55458f27280fad4cb1f0078b878d4a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cornerFlag: {fileID: 374801348}
-  countryName: {fileID: 943844249}
-  treasury: {fileID: 1887463381}
-  manpower: {fileID: 463995767}
-  eventTarget: {fileID: 1842173585}
+  cornerFlagText: {fileID: 374801348}
+  countryNameText: {fileID: 943844249}
+  treasuryText: {fileID: 1887463381}
+  manpowerText: {fileID: 463995767}
+  rulerNameText: {fileID: 485856608}
+  rulerSkillText: {fileID: 1991415188}
+  rulerSkillStoredText: {fileID: 1368062778}
+  eventTargetTransform: {fileID: 1842173585}
 --- !u!1001 &1114259329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7408,6 +7982,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -7828,7 +8406,11 @@ MonoBehaviour:
   - {fileID: 1983493946}
   - {fileID: 169023684}
   - {fileID: 157509591}
+  grandEmpire: {fileID: 0}
+  priceList: {fileID: 0}
+  selectedUnit: {fileID: 0}
   eventCardManager: {fileID: 1133725051}
+  prefabContainer: {fileID: 0}
   countries:
   - {fileID: 881955972}
   - {fileID: 2032756716}
@@ -7840,8 +8422,10 @@ MonoBehaviour:
   - {fileID: 401285801}
   - {fileID: 12128762}
   initEmpire: {fileID: 423193603}
+  activeCountry: {fileID: 0}
+  openMenu: {fileID: 0}
   maxRounds: 50
-  UIManager: {fileID: 1084435780}
+  uiManager: {fileID: 0}
 --- !u!114 &1133725051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7855,7 +8439,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   events:
-  - {fileID: 1755272058779576476, guid: 1cffec206bde54d479e8a6e7bdb2d29b, type: 3}
+  - {fileID: 6343384322597189971, guid: 1cffec206bde54d479e8a6e7bdb2d29b, type: 3}
+  - {fileID: 2518745909939323544, guid: 798072f43278d074a9684e05a93c6770, type: 3}
+  _peaceOffer: {fileID: 0}
 --- !u!1 &1135798099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8012,6 +8598,10 @@ PrefabInstance:
       value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: coast
       value: 
       objectReference: {fileID: 451793132}
@@ -8118,6 +8708,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: coast
       value: 
       objectReference: {fileID: 3190107678463373057}
@@ -8212,6 +8806,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -8294,9 +8892,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: develpomentLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: landNeighbours.Array.size
       value: 2
@@ -8352,6 +8958,7 @@ Transform:
   m_Children:
   - {fileID: 1299009797}
   - {fileID: 1734658606}
+  - {fileID: 1961684245}
   m_Father: {fileID: 423193602}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8370,7 +8977,7 @@ MonoBehaviour:
   countryName: The Free City of Steelforge
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 2
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 9b114ae218ae6094d98cc68a4314b430, type: 2}
@@ -8381,16 +8988,19 @@ MonoBehaviour:
   - {fileID: 1837189761}
   - {fileID: 401397751}
   - {fileID: 145631110}
-  capital: {fileID: 1450124309}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 1299009798}
   - {fileID: 1734658607}
+  navy: {fileID: 0}
   inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 1961684246}
+  aiControlled: 0
   countryAI: {fileID: 1177355117}
   eventQueue: []
 --- !u!114 &1177355117
@@ -8406,6 +9016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 1177355116}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!114 &1193301523 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -8571,6 +9183,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -8740,6 +9356,10 @@ PrefabInstance:
     - target: {fileID: 4478436730047325590, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
@@ -8954,6 +9574,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72abd1f4c0fc4824e9e8db6710cee947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1263303168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1263303169}
+  - component: {fileID: 1263303170}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1263303169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263303168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 881955971}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1263303170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263303168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e273c5941fbc21242b66d952c5ce60a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 881955972}
+  electionTurnInterval: 2
 --- !u!114 &1268329537 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -9119,6 +9785,10 @@ PrefabInstance:
     - target: {fileID: 6038573623394116917, guid: 01664737e70a44c4386509a92458778e, type: 3}
       propertyPath: m_Name
       value: Army (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038573623394116919, guid: 01664737e70a44c4386509a92458778e, type: 3}
+      propertyPath: infantry
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6038573623394116919, guid: 01664737e70a44c4386509a92458778e, type: 3}
       propertyPath: location
@@ -9306,6 +9976,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -9352,6 +10026,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72abd1f4c0fc4824e9e8db6710cee947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1368062776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1368062777}
+  - component: {fileID: 1368062779}
+  - component: {fileID: 1368062778}
+  m_Layer: 5
+  m_Name: RulerSkillStored
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1368062777
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368062776}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 485856607}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 144, y: 0}
+  m_SizeDelta: {x: 144, y: 48}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1368062778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368062776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &1368062779
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1368062776}
+  m_CullTransparentMesh: 1
 --- !u!114 &1376059591 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -9580,6 +10334,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 47
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -9638,6 +10396,7 @@ Transform:
   m_Children:
   - {fileID: 190544218}
   - {fileID: 955498112}
+  - {fileID: 39184018}
   m_Father: {fileID: 423193602}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9656,7 +10415,7 @@ MonoBehaviour:
   countryName: Duchy of the Salmon Coast
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 2
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 9b114ae218ae6094d98cc68a4314b430, type: 2}
@@ -9666,16 +10425,19 @@ MonoBehaviour:
   - {fileID: 526257299}
   - {fileID: 1344322168}
   - {fileID: 309038854}
-  capital: {fileID: 526257299}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 190544219}
   - {fileID: 955498113}
+  navy: {fileID: 0}
   inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 39184019}
+  aiControlled: 0
   countryAI: {fileID: 1406896965}
   eventQueue: []
 --- !u!114 &1406896965
@@ -9691,6 +10453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 1406896964}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!114 &1420120508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -9842,9 +10606,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: develpomentLevel
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: landNeighbours.Array.size
       value: 3
@@ -10115,6 +10887,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: coast
       value: 
       objectReference: {fileID: 240547228}
@@ -10213,9 +10989,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 12128762}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: develpomentLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: seaNeighbours.Array.size
       value: 1
@@ -10414,6 +11198,10 @@ PrefabInstance:
       value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 336119246}
@@ -10513,6 +11301,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -10716,6 +11508,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -11040,6 +11836,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
@@ -11139,6 +11939,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -11282,6 +12086,10 @@ PrefabInstance:
       value: Army (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6038573623394116919, guid: 01664737e70a44c4386509a92458778e, type: 3}
+      propertyPath: infantry
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038573623394116919, guid: 01664737e70a44c4386509a92458778e, type: 3}
       propertyPath: location
       value: 
       objectReference: {fileID: 145631110}
@@ -11376,6 +12184,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -11482,6 +12294,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -11691,6 +12507,10 @@ PrefabInstance:
       value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: coast
       value: 
       objectReference: {fileID: 883657750}
@@ -11856,18 +12676,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842173584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 449649573}
-  m_RootOrder: 3
+  m_Father: {fileID: 1084435779}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -454, y: -106}
-  m_SizeDelta: {x: 96, y: 96}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 168, y: -136}
+  m_SizeDelta: {x: 64, y: 64}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854597431 stripped
 MonoBehaviour:
@@ -12196,6 +13016,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 1177355116}
@@ -12505,6 +13329,10 @@ PrefabInstance:
       value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 1177355116}
@@ -12632,6 +13460,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34bd705fab5efb14e8436d5cd71ddf60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1961684244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961684245}
+  - component: {fileID: 1961684246}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1961684245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961684244}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1177355115}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961684246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961684244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e273c5941fbc21242b66d952c5ce60a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 1177355116}
+  electionTurnInterval: 5
 --- !u!114 &1962849992 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -12643,6 +13517,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72abd1f4c0fc4824e9e8db6710cee947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1963575738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963575739}
+  - component: {fileID: 1963575740}
+  m_Layer: 0
+  m_Name: Government
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963575739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963575738}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 445619985}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963575740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963575738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce57f0db45e8674093cc505f31bf006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  country: {fileID: 445619986}
 --- !u!114 &1977919833 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -12743,6 +13662,141 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72abd1f4c0fc4824e9e8db6710cee947, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1990980573
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1990980574}
+  - component: {fileID: 1990980576}
+  - component: {fileID: 1990980575}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1990980574
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990980573}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 984048565}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1990980575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990980573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "Grand \nEmpire"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4281479730
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 0
+  m_fontSizeMax: 0
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 0
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1990980576
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1990980573}
+  m_CullTransparentMesh: 1
 --- !u!1 &1991415186
 GameObject:
   m_ObjectHideFlags: 0
@@ -12778,8 +13832,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 12, y: -12}
-  m_SizeDelta: {x: 120, y: 24}
+  m_AnchoredPosition: {x: 0, y: -12}
+  m_SizeDelta: {x: 144, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1991415188
 MonoBehaviour:
@@ -12808,7 +13862,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -12855,6 +13909,7 @@ Transform:
   m_Children:
   - {fileID: 1915464852}
   - {fileID: 353624261}
+  - {fileID: 446536251}
   m_Father: {fileID: 423193602}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12873,7 +13928,7 @@ MonoBehaviour:
   countryName: Duchy of the Graues Tall
   manpowerCap: 0
   manpowerCurrent: 0
-  manpowerUsed: 0
+  manpowerUsed: 2
   manpowerGraveyard0: 0
   treasury: 0
   culture: {fileID: 11400000, guid: 572a211663b9f354fb0e18315315393f, type: 2}
@@ -12883,16 +13938,19 @@ MonoBehaviour:
   - {fileID: 1542714638}
   - {fileID: 1541798774}
   - {fileID: 283730266}
-  capital: {fileID: 623958052}
+  _capital: {fileID: 0}
   armies:
   - {fileID: 1915464853}
   - {fileID: 353624262}
+  navy: {fileID: 0}
   inEmpire: 1
   activeWars: []
   atWarWith: []
   activeAlliances: []
-  government: {fileID: 0}
-  AIControlled: 0
+  ruler: {fileID: 0}
+  rulerSkillStored: 0
+  government: {fileID: 446536252}
+  aiControlled: 0
   countryAI: {fileID: 2032756717}
   eventQueue: []
 --- !u!114 &2032756717
@@ -12908,6 +13966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   country: {fileID: 2032756716}
+  landNeighbours: []
+  seaNeighbours: []
 --- !u!1 &2057206963
 GameObject:
   m_ObjectHideFlags: 0
@@ -13056,6 +14116,10 @@ PrefabInstance:
       value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: coast
       value: 
       objectReference: {fileID: 928409720}
@@ -13146,9 +14210,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 401285801}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: develpomentLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: landNeighbours.Array.size
       value: 2
@@ -13241,6 +14313,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: ID
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
       value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
@@ -13357,9 +14433,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: id
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: owningCountry
       value: 
       objectReference: {fileID: 12128762}
+    - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
+      propertyPath: develpomentLevel
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4478436730047325591, guid: b228fcce47d4aaa4eafaf5faf687b69b, type: 3}
       propertyPath: seaNeighbours.Array.size
       value: 1
